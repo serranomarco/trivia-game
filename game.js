@@ -1,45 +1,9 @@
-import getClueFromCallback from './callback-version.js';
-import getClueFromPromise from './promse-version.js';
 import getClueFromAsync from './async-await-version.js';
 import getClueFromLoad from './loadGame.js';
 
 window.addEventListener('DOMContentLoaded', () => {
 
     getLocalStorage();
-
-    // callbackButton.addEventListener('click', () => {
-    //     answer.style.display = 'none';
-    //     checkResponseButton.disabled = false;
-    //     getClueFromCallback(function (error, clue) {
-    //         if (error !== null) {
-    //             console.error(`Error: ${error}`);
-    //         }
-
-    //         question.innerHTML = clue.question;
-    //         answer.innerHTML = clue.answer;
-    //         value.innerHTML = clue.value;
-    //         categoryTitle.innerHTML = clue.category.title;
-    //         saveLocalStorage(clue)
-    //     });
-    // });
-    // promiseButton.addEventListener('click', () => {
-    //     answer.style.display = 'none';
-    //     checkResponseButton.disabled = false;
-    //     getClueFromPromise()
-    //         .then(clue => {
-
-    //             if (invalidCount > 0 && clue[invalidCount] === undefined) {
-    //                 invalidCount.innerHTML = 'invalid'
-    //             } else {
-    //                 invalidCount.innerHTML = 'valid';
-    //             }
-    //             question.innerHTML = clue.question;
-    //             answer.innerHTML = clue.answer;
-    //             value.innerHTML = clue.value;
-    //             categoryTitle.innerHTML = clue.category.title;
-    //             saveLocalStorage(clue)
-    //         });
-    // });
 
     asyncButton.addEventListener('click', async () => {
         answer.style.display = 'none';
@@ -81,8 +45,6 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// const callbackButton = document.getElementById('use-callback');
-// const promiseButton = document.getElementById('use-promise');
 const asyncButton = document.getElementById('use-async-await');
 const checkResponseButton = document.getElementById('check-response');
 
@@ -90,7 +52,6 @@ const question = document.getElementById('question');
 const answer = document.getElementById('answer');
 const value = document.getElementById('value');
 const categoryTitle = document.getElementById('category-title');
-const invalidCount = document.getElementById('invalid-count')
 const playerResponse = document.getElementById('player-response');
 const score = document.getElementById('actual-score');
 const scoreDiv = document.getElementById('score');
