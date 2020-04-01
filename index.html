@@ -14,17 +14,17 @@
 
 <body>
     <main>
-        <div id='title'>Jeopardy!</div>
+        <h1 id='title'>Jeopardy!</h1>
         <div id='score'>Score: <span id='actual-score'>0</span></div>
-        <div>Category:<span id='category-title'></span></div>
+        <div>Category: <span id='category-title'></span></div>
         <div><span id='value'></span> Points</div>
         <div id='question'></div>
-        <div id='invalid-count'></div>
         <form class='pure-form'>
             <textarea id='player-response' class='pure-input-1'></textarea>
         </form>
 
         <div id='game-board'>
+            <button id='new-game' class='pure-button'>New Game</button>
             <button id='check-response' class='pure-button' disabled='true'>Check Response</button>
             <button id='use-async-await' class='pure-button'>New Question</button>
         </div>

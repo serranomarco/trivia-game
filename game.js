@@ -42,11 +42,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
     });
 
+    newGameButton.addEventListener('click', () => {
+        score.innerHTML = 0;
+    })
 });
 
 
 const asyncButton = document.getElementById('use-async-await');
 const checkResponseButton = document.getElementById('check-response');
+const newGameButton = document.getElementById('new-game');
 
 const question = document.getElementById('question');
 const answer = document.getElementById('answer');
