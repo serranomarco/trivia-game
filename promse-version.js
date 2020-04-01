@@ -6,7 +6,4 @@ export default function getClue() {
             }
             return res.json();
         })
-        .then(data => {
-            return data
-        });
 }

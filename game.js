@@ -3,46 +3,45 @@ import getClueFromPromise from './promse-version.js';
 import getClueFromAsync from './async-await-version.js';
 import getClueFromLoad from './loadGame.js';
 
-window.addEventListener('DOMContentLoaded', event => {
+window.addEventListener('DOMContentLoaded', () => {
 
     getLocalStorage();
 
-    callbackButton.addEventListener('click', event => {
-        answer.style.display = 'none';
-        checkResponseButton.disabled = false;
-        getClueFromCallback(function (error, clue) {
-            console.log(clue);
-            if (error !== null) {
-                console.error(`Error: ${error}`);
-            }
+    // callbackButton.addEventListener('click', () => {
+    //     answer.style.display = 'none';
+    //     checkResponseButton.disabled = false;
+    //     getClueFromCallback(function (error, clue) {
+    //         if (error !== null) {
+    //             console.error(`Error: ${error}`);
+    //         }
 
-            question.innerHTML = clue.question;
-            answer.innerHTML = clue.answer;
-            value.innerHTML = clue.value;
-            categoryTitle.innerHTML = clue.category.title;
-            saveLocalStorage(clue)
-        });
-    });
-    promiseButton.addEventListener('click', event => {
-        answer.style.display = 'none';
-        checkResponseButton.disabled = false;
-        getClueFromPromise()
-            .then(clue => {
+    //         question.innerHTML = clue.question;
+    //         answer.innerHTML = clue.answer;
+    //         value.innerHTML = clue.value;
+    //         categoryTitle.innerHTML = clue.category.title;
+    //         saveLocalStorage(clue)
+    //     });
+    // });
+    // promiseButton.addEventListener('click', () => {
+    //     answer.style.display = 'none';
+    //     checkResponseButton.disabled = false;
+    //     getClueFromPromise()
+    //         .then(clue => {
 
-                if (invalidCount > 0 && clue[invalidCount] === undefined) {
-                    invalidCount.innerHTML = 'invalid'
-                } else {
-                    invalidCount.innerHTML = 'valid';
-                }
-                question.innerHTML = clue.question;
-                answer.innerHTML = clue.answer;
-                value.innerHTML = clue.value;
-                categoryTitle.innerHTML = clue.category.title;
-                saveLocalStorage(clue)
-            });
-    });
+    //             if (invalidCount > 0 && clue[invalidCount] === undefined) {
+    //                 invalidCount.innerHTML = 'invalid'
+    //             } else {
+    //                 invalidCount.innerHTML = 'valid';
+    //             }
+    //             question.innerHTML = clue.question;
+    //             answer.innerHTML = clue.answer;
+    //             value.innerHTML = clue.value;
+    //             categoryTitle.innerHTML = clue.category.title;
+    //             saveLocalStorage(clue)
+    //         });
+    // });
 
-    asyncButton.addEventListener('click', async event => {
+    asyncButton.addEventListener('click', async () => {
         answer.style.display = 'none';
         checkResponseButton.disabled = false;
         try {
@@ -58,7 +57,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
     });
 
-    checkResponseButton.addEventListener('click', event => {
+    checkResponseButton.addEventListener('click', () => {
         if (answer.innerHTML.toLowerCase() === playerResponse.value.toLowerCase()) {
             score.innerHTML = Number(score.innerHTML) + Number(value.innerHTML);
             scoreDiv.classList.add('correctAnswer');
@@ -82,8 +81,8 @@ window.addEventListener('DOMContentLoaded', event => {
 });
 
 
-const callbackButton = document.getElementById('use-callback');
-const promiseButton = document.getElementById('use-promise');
+// const callbackButton = document.getElementById('use-callback');
+// const promiseButton = document.getElementById('use-promise');
 const asyncButton = document.getElementById('use-async-await');
 const checkResponseButton = document.getElementById('check-response');
 
@@ -117,7 +116,7 @@ function getLocalStorage() {
                 value.innerHTML = clue.value;
                 categoryTitle.innerHTML = clue.category.title;
             });
-        checkResponseButton.disabled = JSON.parse(localStorage.getItem('checkResponseButtonDisabled'))
+        checkResponseButton.disabled = JSON.parse(localStorage.getItem('checkResponseButtonDisabled'));
     }
 
     if (JSON.parse(localStorage.getItem('checkResponseButtonDisabled'))) {
