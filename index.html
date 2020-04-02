@@ -14,21 +14,21 @@
 
 <body>
     <main>
-        <div id='game-board'>
-            <button id='use-callback' class='pure-button'>Use a Callback</button>
-            <button id='use-promise' class='pure-button'>Use a Promise</button>
-            <button id='use-async-await' class='pure-button'>Use async/await</button>
-        </div>
+        <h1 id='title'>Jeopardy!</h1>
         <div id='score'>Score: <span id='actual-score'>0</span></div>
-        <div id='category-title'></div>
+        <div>Category: <span id='category-title'></span></div>
+        <div><span id='value'></span> Points</div>
         <div id='question'></div>
-        <div id='value'></div>
-        <div id='invalid-count'></div>
         <form class='pure-form'>
             <textarea id='player-response' class='pure-input-1'></textarea>
         </form>
-        <button id='check-response' class='pure-button' disabled='true'>Check Response</button>
-        <div id='answer'></div>
+
+        <div id='game-board'>
+            <button id='check-response' class='pure-button' disabled='true'>Check Response</button>
+            <button id='new-question-button' class='pure-button'>New Question</button>
+            <button id='new-game' class='pure-button'>New Game</button>
+        </div>
+        <div id='answer-container'>Answer: <span id='answer'></span></div>
 
     </main>
 </body>
