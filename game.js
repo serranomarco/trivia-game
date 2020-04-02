@@ -5,8 +5,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     getLocalStorage();
 
-    asyncButton.addEventListener('click', async () => {
-        answer.style.display = 'none';
+    newQuestionButton.addEventListener('click', async () => {
+        answerContainer.style.display = 'none';
         checkResponseButton.disabled = false;
         try {
             const clue = await getClueFromAsync()
@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }, 1000)
         }
         playerResponse.value = '';
-        answer.style.display = 'block';
+        answerContainer.style.display = 'block';
         checkResponseButton.disabled = true;
         saveLocalStorage(null)
 
@@ -44,11 +44,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
     newGameButton.addEventListener('click', () => {
         score.innerHTML = 0;
+        question.innerHTML = '';
+        answer.innerHTML = '';
+        value.innerHTML = '';
+        categoryTitle.innerHTML = '';
+        checkResponseButton.disabled = true;
+        answerContainer.style.display = 'none'
+
     })
 });
 
 
-const asyncButton = document.getElementById('use-async-await');
+const newQuestionButton = document.getElementById('new-question-button');
 const checkResponseButton = document.getElementById('check-response');
 const newGameButton = document.getElementById('new-game');
 
@@ -59,6 +66,7 @@ const categoryTitle = document.getElementById('category-title');
 const playerResponse = document.getElementById('player-response');
 const score = document.getElementById('actual-score');
 const scoreDiv = document.getElementById('score');
+const answerContainer = document.getElementById('answer-container');
 
 function saveLocalStorage(clue) {
 
@@ -85,9 +93,9 @@ function getLocalStorage() {
     }
 
     if (JSON.parse(localStorage.getItem('checkResponseButtonDisabled'))) {
-        answer.style.display = 'block';
+        answerContainer.style.display = 'block';
     } else {
-        answer.style.display = 'none';
+        answerContainer.style.display = 'none';
 
     }
 }
